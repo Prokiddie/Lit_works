@@ -1,19 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import logo from '../images/nkhonde.webp';
-import 'animate.css';
-import './Hero.css';
+import logo from '../images/nkhonde.webp';  // Make sure to adjust the logo path if needed
+import 'animate.css';  // Optional, for animation effects
+import './Hero.css';  // Ensure you have your custom CSS if needed
 
-const Hero = () => {
+const DashboardHero = () => {
   const [textIndex, setTextIndex] = useState(0);
-  const [isOpen, setIsOpen] = useState(false); // Mobile menu state
   const heroMessages = [
-    "Welcome to MYBANK NKHONDE",
-    "Empowering Communities",
-    "Smart Savings & Loans",
-    "Join Us Today!",
+    "Your Financial Overview",
+    "Track Your Savings & Loans",
+    "Manage Your Account Efficiently",
+    "See Your Financial Trends",
   ];
-
-  const toggleMenu = () => setIsOpen(!isOpen); // Toggle mobile menu
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -23,7 +20,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="hero bg-gradient-to-r from-green-400 to-orange-500 text-white py-16 relative">
+    <section className="hero position-relative z-index-10 bg-gradient-to-r from-green-400 to-orange-500 text-white py-16">
       <div className="container mx-auto">
         {/* Logo Section */}
         <div className="absolute top-4 left-6 flex items-center">
@@ -59,9 +56,7 @@ const Hero = () => {
           {/* Hamburger Icon */}
           <button
             className="md:hidden flex items-center text-white"
-            onClick={toggleMenu}
             aria-label="Toggle Navigation"
-            aria-expanded={isOpen}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -74,31 +69,11 @@ const Hero = () => {
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth={2}
-                d={isOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16m-7 6h7"}
+                d="M4 6h16M4 12h16m-7 6h7"
               />
             </svg>
           </button>
         </nav>
-
-        {/* Mobile Menu */}
-        <div
-          className={`${
-            isOpen ? "block animate__animated animate__slideInDown" : "hidden"
-          } md:hidden bg-green-500 text-white absolute top-16 left-0 w-full shadow-lg`}
-        >
-          <ul className="flex flex-col items-center space-y-4 py-4">
-            {["Home", "Notifications", "Features", "Services", "About", "Contact"].map((item, index) => (
-              <li key={index}>
-                <a
-                  href={`/${item.toLowerCase()}`}
-                  className="nav-link text-white hover:text-gray-300 transition"
-                >
-                  {item}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
 
         {/* Hero Content */}
         <div className="text-center mt-20">
@@ -109,10 +84,10 @@ const Hero = () => {
             {heroMessages[textIndex]}
           </h2>
           <h3 className="text-2xl font-semibold mb-6 animate__animated animate__zoomIn animate__delay-2s">
-            Transform your community with us.
+            Manage your finances with ease.
           </h3>
           <p className="text-xl mb-8 animate__animated animate__fadeInUp animate__delay-3s">
-            Experience seamless, secure, and easy financial management.
+            Gain insights and take control of your financial journey today.
           </p>
           <a
             href="/dashboard"
@@ -126,4 +101,4 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+export default DashboardHero;

@@ -11,7 +11,8 @@ const Services = () => {
           <div className="service-card bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all">
             <h3 className="text-xl font-semibold mb-4">Digital Savings Accounts</h3>
             <p className="mb-4">Create and manage digital savings accounts with automatic transfers and goal tracking.</p>
-            <a href="#digital-savings" className="text-green-500 hover:text-green-700">Learn More</a>
+            <a href="/account" className="text-green-500 hover:text-green-700">Learn More</a>
+            <a href="/AccountHeader" className="text-green-500 hover:text-green-700">header</a>
           </div>
 
           {/* Service Card 2 */}
